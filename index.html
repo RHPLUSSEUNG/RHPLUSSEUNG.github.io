@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = function () {        
+        let headers = document.querySelectorAll("h1");
+
+        for (let header of headers) {          
+          header.style.color = "orange";
+          header.style.background = "lightblue";          
+        }
+
+        let output = document.body.innerHTML;
+        console.log("innerHTML:" + output);        
+
+        for (let i = 0; i < 10; i++) {
+          output += "<h1>Header - " + i + "</h1>";
+        }
+
+        for (let i = 0; i < 256; i++) {
+          output += "<div></div>";
+        }
+        
+        document.body.innerHTML = output; //태그로 인식
+
+        let divs = document.querySelectorAll("div");
+
+        for (
+          let i = 0;
+          i < divs.length;
+          i++ //그라데이션
+        ) {
+          let div = divs[i];
+          div.style.height = "2px";
+          div.style.background = "rgb(" + i + ", " + i + ", " + i + ")";
+        }
+        
+
+        let clock = document.querySelector("#header");
+
+        setInterval(
+          function () {
+            let now = new Date();
+            clock.innerHTML = now.toString();
+          },
+          1000 //1000ms = 1초, 1초동안 반복
+        );
+            
+      };
+    </script>
+  </head>
+  <body>
+    <h1 id="header">RHPLUSSEUNG</h1>    
+    <h1>Github</h1>    
+  </body>
+</html>
